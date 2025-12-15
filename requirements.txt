@@ -1,0 +1,10 @@
+pandas
+numpy
+tqdm
+requests
+scikit-learn
+torch==2.2.0
+torchvision
+transformers==4.34.0
+timm
+Pillow

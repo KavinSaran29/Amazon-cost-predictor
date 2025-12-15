@@ -1,0 +1,21 @@
+version: '3.8'
+
+# Define the named volume that will persist the model data
+volumes:
+  hf-cache:
+
+services:
+  feature-generator:
+    build: .
+    volumes:
+      # Mount your project directory (as before)
+      - .:/app
+      # Mount the named volume to the Hugging Face cache directory inside the container
+      - hf-cache:/root/.cache/huggingface
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]               
